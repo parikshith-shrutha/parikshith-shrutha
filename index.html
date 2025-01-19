@@ -6,8 +6,44 @@
             color: #ffffff; /* Sets the text color to white for better contrast */
         }
     </style>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Website Poll</title>    
 </head>
 <body>
+    <h2>What is your favorite type of fight?</h2> 
+    <form id="pollForm"> 
+        <label> 
+            <input type="radio" name="language" value="attack"> attack 
+        </label>
+        <br> 
+        <label> 
+            <input type="radio" name="language" value="defense"> defense
+        </label>
+        <br> 
+        <button type="button" onclick="submitPoll()">Submit</button> 
+    </form> 
+    <div id="pollResults" style="display:none;"> 
+        <h3>Poll Results:</h3> 
+        <ul id="resultsList"></ul> 
+    </div> 
+    <script> 
+    function submitPoll() { 
+        const pollForm = document.getElementById('pollForm'); 
+        const selectedOption = pollForm.querySelector('input[name="language"]:checked'); 
+        if (!selectedOption) { 
+            alert('Please select an option'); 
+            return; 
+        } 
+        const value = selectedOption.value; 
+        const resultsList = document.getElementById('resultsList'); 
+        const resultItem = document.createElement('li'); 
+        resultItem.textContent = `You voted for: ${value}`; 
+        resultsList.appendChild(resultItem); 
+        document.getElementById('pollForm').style.display = 'none'; 
+        document.getElementById('pollResults').style.display = 'block'; 
+    } 
+    </script>     
     <div>
         Hello everybody, this is my website. This is a web site about nerf. If you want to join this website, then you must be a proper nerfer.In this wesite we can discuss about anything we want. In this website we will also be able to view the things that are happening in the 3 faces. We can also accept or delete any missions that are there. Missions are created to go fight if there are multiple serious bad reportings about the same place by the same people at different times. You can also chat. There are 2 chats which are personal chat and group chat. You can create multiple personal chats but there is only 1 group chat.
     You must also meet me and ask if you want to join the group.</div>
